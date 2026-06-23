@@ -7,10 +7,8 @@
 <style>
   :root {
     --ground: #F4F6F8;
-    --panel: #FFFFFF;
     --text: #16191F;
     --muted: #5A636E;
-    --hair: #D8DDE3;
     --accent: #0E7C77;   /* Editorial Teal */
     --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     --mono: ui-monospace, "Cascadia Code", "SF Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
@@ -27,42 +25,15 @@
     font-family: var(--mono); font-size: .8rem; letter-spacing: .08em;
     text-transform: uppercase; color: var(--accent); margin: 0 0 .5rem;
   }
-  h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.1; margin: 0 0 .75rem; }
-  p.lede { color: var(--muted); font-size: 1.05rem; margin: 0 0 2rem; }
-  ul.work { list-style: none; padding: 0; margin: 0; }
-  ul.work li { margin: 0; }
-  ul.work a {
-    display: flex; align-items: baseline; gap: .75rem;
-    padding: 1rem 1.1rem; background: var(--panel);
-    border: 1px solid var(--hair); border-radius: 12px;
-    text-decoration: none; color: var(--text);
-    transition: border-color .15s ease, transform .15s ease;
-    margin-bottom: .6rem;
-  }
-  ul.work a:hover { border-color: var(--accent); transform: translateY(-1px); }
-  ul.work .slug { font-family: var(--mono); font-size: .85rem; color: var(--accent); }
-  ul.work .label { font-weight: 600; }
-  ul.work .note { color: var(--muted); font-size: .9rem; margin-left: auto; }
+  h1 { font-size: clamp(1.9rem, 5vw, 2.8rem); line-height: 1.1; margin: 0; }
   footer { margin-top: 2.5rem; color: var(--muted); font-size: .85rem; }
   footer a { color: var(--accent); text-decoration: none; }
 </style>
 </head>
 <body>
 <main>
-  <p class="eyebrow">Selected work &amp; demos</p>
+  <p class="eyebrow">nellesen.dev</p>
   <h1>Marcel Nellesen</h1>
-  <p class="lede">Product &amp; AI leadership in regulated fintech. A small set of working demos and portfolio pieces lives here.</p>
-
-  <ul class="work">
-    <li>
-      <a href="/grafana/">
-        <span class="slug">/grafana</span>
-        <span class="label">Selected Work</span>
-        <span class="note">portfolio &rarr;</span>
-      </a>
-    </li>
-  </ul>
-
   <footer>
     <a href="https://github.com/mazl-io">github.com/mazl-io</a>
   </footer>
