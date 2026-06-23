@@ -1,0 +1,373 @@
+<title>Marcel Nellesen — Selected Work</title>
+<style>
+  :root {
+    --ground: #F4F6F8;
+    --panel: #FFFFFF;
+    --text: #16191F;
+    --muted: #5A636E;
+    --hair: #D8DDE3;
+    --accent: #C0410E;   /* Grafana-resonant orange — matches the CV accent */
+    --accent-2: #0E7C77; /* secondary data series — ties to the Editorial-Teal base */
+    --mono: ui-monospace, "Cascadia Code", "SF Mono", "Segoe UI Mono", Menlo, Consolas, monospace;
+    --sans: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--text);
+    font-family: var(--sans);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(28px, 6vw, 72px) clamp(20px, 5vw, 56px) 72px;
+  }
+
+  /* ---- instrumentation label: the signature face ---- */
+  .read {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .read .dot { color: var(--accent); }
+
+  /* ---- hero ---- */
+  .hero { position: relative; padding-top: 8px; }
+  .hero .eyebrow { color: var(--accent); }
+  .name {
+    font-family: var(--mono);
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin: 22px 0 14px;
+    color: var(--text);
+  }
+  h1 {
+    font-weight: 800;
+    font-size: clamp(34px, 6.2vw, 62px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin: 0 0 4px;
+    max-width: 16ch;
+  }
+  h1 .keyline {
+    display: inline-block;
+    border-bottom: 4px solid var(--accent);
+    padding-bottom: 2px;
+  }
+  .lede {
+    font-size: clamp(16px, 2.1vw, 20px);
+    color: var(--muted);
+    max-width: 58ch;
+    margin: 22px 0 0;
+  }
+
+  /* ---- telemetry strip ---- */
+  .metrics {
+    position: relative;
+    margin-top: clamp(28px, 4vw, 44px);
+    border-top: 1px solid var(--hair);
+    border-bottom: 1px solid var(--hair);
+    padding: 22px 0 24px;
+  }
+  .spark { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5; pointer-events: none; }
+  .metric-grid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+  }
+  .metric .num {
+    font-family: var(--mono);
+    font-size: clamp(22px, 3.4vw, 34px);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .metric .num b { color: var(--accent); font-weight: 600; }
+  .metric .cap {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  /* ---- section headers ---- */
+  .sec { margin-top: clamp(48px, 8vw, 84px); }
+  .sec-head {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    border-bottom: 1px solid var(--hair);
+    padding-bottom: 12px;
+    margin-bottom: 28px;
+  }
+  .sec-head .idx { font-family: var(--mono); color: var(--accent); font-size: 13px; letter-spacing: 0.12em; }
+  .sec-head h2 {
+    font-size: clamp(15px, 2vw, 17px);
+    font-family: var(--mono);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* ---- case panels: float on the canvas like dashboard panels ---- */
+  .panels { display: grid; gap: 20px; }
+  .panel {
+    background: var(--panel);
+    border: 1px solid var(--hair);
+    border-top: 2px solid var(--accent);
+    border-radius: 3px;
+    padding: clamp(20px, 3vw, 30px);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: clamp(16px, 3vw, 36px);
+  }
+  .panel.alt { border-top-color: var(--accent-2); }
+  .meta-rail { display: flex; flex-direction: column; gap: 12px; }
+  .meta-row .k {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+  }
+  .meta-row .v { font-size: 14px; color: var(--text); }
+  .panel h3 {
+    font-size: clamp(20px, 3vw, 27px);
+    font-weight: 800;
+    letter-spacing: -0.018em;
+    line-height: 1.1;
+    margin: 0 0 12px;
+  }
+  .panel p { margin: 0 0 14px; color: var(--text); font-size: 15.5px; }
+  .panel p.out {
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+    background: var(--ground);
+    border-left: 2px solid var(--accent);
+    padding: 12px 14px;
+    margin: 0;
+  }
+  .panel.alt p.out { border-left-color: var(--accent-2); }
+  .panel p.out b { color: var(--text); font-weight: 600; }
+  .hedge { color: var(--muted); font-style: italic; font-family: var(--sans); font-size: 13px; }
+
+  /* ---- compact 'also' row ---- */
+  .also { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+  .also .card {
+    border: 1px solid var(--hair);
+    border-radius: 3px;
+    padding: 20px 22px;
+    background: var(--panel);
+  }
+  .also h4 { margin: 0 0 8px; font-size: 16px; font-weight: 800; letter-spacing: -0.01em; }
+  .also p { margin: 0; font-size: 14px; color: var(--muted); }
+
+  /* ---- stances ---- */
+  .stances { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .stance .n { font-family: var(--mono); color: var(--accent); font-size: 13px; letter-spacing: 0.12em; }
+  .stance h3 { font-size: 18px; font-weight: 800; letter-spacing: -0.01em; margin: 10px 0 8px; }
+  .stance p { margin: 0; font-size: 14.5px; color: var(--muted); }
+
+  /* ---- footer ---- */
+  footer { margin-top: clamp(48px, 8vw, 80px); border-top: 1px solid var(--hair); padding-top: 24px; }
+  .links { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; }
+  .links a { color: var(--text); text-decoration: none; font-weight: 600; font-size: 15px; border-bottom: 2px solid var(--accent); padding-bottom: 1px; }
+  .links a:hover, .links a:focus-visible { color: var(--accent); }
+  .note { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em; color: var(--muted); margin-top: 18px; line-height: 1.6; }
+
+  a:focus-visible, .links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+  @media (max-width: 760px) {
+    .metric-grid { grid-template-columns: repeat(2, 1fr); gap: 18px 16px; }
+    .panel { grid-template-columns: 1fr; }
+    .meta-rail { flex-direction: row; flex-wrap: wrap; gap: 16px 28px; }
+    .also, .stances { grid-template-columns: 1fr; }
+  }
+</style>
+
+<div class="wrap">
+
+  <header class="hero">
+    <div class="read eyebrow">Product &amp; Technology Executive · Platform · Data · AI</div>
+    <div class="name">Marcel Nellesen</div>
+    <h1>Product and platform leadership for data, infrastructure, and <span class="keyline">AI.</span></h1>
+    <p class="lede">17+ years building the teams, platforms, and data products behind regulated financial infrastructure — and now defining how AI reshapes technical products for the people who operate them.</p>
+
+    <div class="metrics">
+      <canvas class="spark" aria-hidden="true"></canvas>
+      <div class="metric-grid">
+        <div class="metric"><div class="num">17<b>+</b></div><div class="cap">Years in tech</div></div>
+        <div class="metric"><div class="num">270</div><div class="cap">People led</div></div>
+        <div class="metric"><div class="num">16</div><div class="cap">Teams</div></div>
+        <div class="metric"><div class="num">8,000<b>+</b></div><div class="cap">Orgs on one product</div></div>
+        <div class="metric"><div class="num">50,000<b>+</b></div><div class="cap">Product users</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec-head"><span class="idx">01</span><h2>Selected work</h2></div>
+
+    <div class="panels">
+
+      <article class="panel">
+        <div class="meta-rail">
+          <div class="meta-row"><span class="k">Role</span><span class="v">CPTO / CPO</span></div>
+          <div class="meta-row"><span class="k">Scope</span><span class="v">Multi-client custody platform</span></div>
+          <div class="meta-row"><span class="k">Context</span><span class="v">BaFin-regulated infrastructure</span></div>
+        </div>
+        <div>
+          <h3>One platform, many clients</h3>
+          <p>Brought product and platform engineering under a single mandate so multiple regulated clients could be served through one integration surface — instead of a bespoke build per partner. One core capability, many product lines.</p>
+          <p class="out">Public integrations include <b>Baader Bank, flatexDEGIRO, eToro, justTRADE, Smartbroker, finanzen.net zero</b>, and <b>Bitvavo</b> — institutions whose own customers depend on the platform behaving predictably under load.</p>
+        </div>
+      </article>
+
+      <article class="panel">
+        <div class="meta-rail">
+          <div class="meta-row"><span class="k">Role</span><span class="v">Team Lead &amp; Product Owner</span></div>
+          <div class="meta-row"><span class="k">Company</span><span class="v">DATEV</span></div>
+          <div class="meta-row"><span class="k">Scope</span><span class="v">Data product, end-to-end</span></div>
+        </div>
+        <div>
+          <h3>A data product that set a market standard</h3>
+          <p>Built and launched the Digitalisierungs-Cockpit — a data-driven SaaS that quantifies the digital maturity of accounting firms and turns it into a concrete, comparable signal customers act on.</p>
+          <p class="out"><b>8,000+ institutions · 50,000+ users.</b> Became the backbone of the industry's "Digitale Kanzlei" standard.</p>
+        </div>
+      </article>
+
+      <article class="panel alt">
+        <div class="meta-rail">
+          <div class="meta-row"><span class="k">Role</span><span class="v">CPTO</span></div>
+          <div class="meta-row"><span class="k">Scope</span><span class="v">AI strategy &amp; architecture</span></div>
+          <div class="meta-row"><span class="k">Stack</span><span class="v">Agents · MCP · RAG · LLM-Ops</span></div>
+        </div>
+        <div>
+          <h3>An operating system for AI — not a pile of copilots</h3>
+          <p>Conceived a hub-and-spoke "AI OS": skill-based agents over a unified data layer, with the strategy to make AI a core capability across engineering, compliance, and operations rather than a scatter of disconnected tools. A daily, hands-on AI practitioner — Claude Code, the Agent SDK, MCP servers and clients.</p>
+          <p class="out">Targeting <b>~10x</b> on selected workflows <span class="hedge">— an aim that guides the roadmap, not a booked result.</span> Set out in the essay <b>"The AI Revolution — A Vision to 2028."</b></p>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="also">
+      <div class="card">
+        <h4>DATEV Developer Portal</h4>
+        <p>Opened a classically inward-facing enterprise to third-party developers via APIs — driving the creation of a central developer platform without loosening compliance or security.</p>
+      </div>
+      <div class="card">
+        <h4>ServerlessKNX</h4>
+        <p>Cloud-native, serverless smart-home control. 100+ beta users; discontinued on the unit economics. Learn fast, fail fast — and read the cost-to-serve honestly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec-head"><span class="idx">02</span><h2>How I lead</h2></div>
+    <div class="stances">
+      <div class="stance">
+        <div class="n">/01</div>
+        <h3>Platform leverage over local wins</h3>
+        <p>The job is to build the one capability many teams stand on — and to make the tradeoff between customer value, platform leverage, and operational reality explicit, not implicit.</p>
+      </div>
+      <div class="stance">
+        <div class="n">/02</div>
+        <h3>Earn the trust of technical buyers</h3>
+        <p>I've shipped for engineers, regulated institutions, and operators. Credibility there comes from understanding the system, not from a polished deck.</p>
+      </div>
+      <div class="stance">
+        <div class="n">/03</div>
+        <h3>AI as a working practice</h3>
+        <p>I use agentic tooling every day and design with it. That's where conviction about how products evolve for AI-mediated users actually comes from.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="links">
+      <a href="https://www.linkedin.com/in/marcel-nellesen">LinkedIn</a>
+      <a href="mailto:marcel@nellesen.info">marcel@nellesen.info</a>
+    </div>
+    <p class="note">Outcome-level summaries of work led at Tangany, DATEV, and as an independent builder — no confidential or customer data. Metrics are cumulative across roles. © Marcel Nellesen.</p>
+  </footer>
+
+</div>
+
+<script>
+  // Subtle telemetry sparkline behind the metric strip — one quiet, on-subject moment.
+  (function () {
+    var c = document.querySelector('.spark');
+    if (!c) return;
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var ctx = c.getContext('2d');
+    // a fixed series so the line is stable across reloads
+    var series = [0.42,0.40,0.46,0.44,0.52,0.49,0.58,0.55,0.63,0.60,0.69,0.66,0.74,0.78,0.72,0.81,0.86,0.83,0.90,0.95];
+
+    function draw(progress) {
+      var dpr = window.devicePixelRatio || 1;
+      var w = c.clientWidth, h = c.clientHeight;
+      c.width = w * dpr; c.height = h * dpr;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+
+      var n = Math.max(2, Math.floor(series.length * progress));
+      var stepX = w / (series.length - 1);
+      function x(i){ return i * stepX; }
+      function y(v){ return h - (v * (h - 14)) - 7; }
+
+      // area fill
+      ctx.beginPath();
+      ctx.moveTo(x(0), y(series[0]));
+      for (var i = 1; i < n; i++) ctx.lineTo(x(i), y(series[i]));
+      ctx.lineTo(x(n - 1), h); ctx.lineTo(x(0), h); ctx.closePath();
+      var g = ctx.createLinearGradient(0, 0, 0, h);
+      g.addColorStop(0, 'rgba(192,65,14,0.10)');
+      g.addColorStop(1, 'rgba(192,65,14,0.00)');
+      ctx.fillStyle = g; ctx.fill();
+
+      // line
+      ctx.beginPath();
+      ctx.moveTo(x(0), y(series[0]));
+      for (var j = 1; j < n; j++) ctx.lineTo(x(j), y(series[j]));
+      ctx.strokeStyle = 'rgba(192,65,14,0.55)';
+      ctx.lineWidth = 1.5; ctx.lineJoin = 'round'; ctx.stroke();
+
+      // leading dot
+      ctx.beginPath();
+      ctx.arc(x(n - 1), y(series[n - 1]), 2.6, 0, Math.PI * 2);
+      ctx.fillStyle = '#C0410E'; ctx.fill();
+    }
+
+    if (reduce) { draw(1); }
+    else {
+      var start = null, dur = 1100;
+      function step(ts) {
+        if (start === null) start = ts;
+        var p = Math.min(1, (ts - start) / dur);
+        var eased = 1 - Math.pow(1 - p, 3);
+        draw(eased);
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    window.addEventListener('resize', function () { draw(1); });
+  })();
+</script>

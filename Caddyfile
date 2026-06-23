@@ -1,0 +1,18 @@
+# nellesen.dev — static file server.
+# Coolify's edge proxy terminates TLS and routes the domain to this container :80.
+# file_server auto-serves <dir>/index.html, so /grafana -> /srv/grafana/index.html
+# with zero per-page config. Add a folder under public/, that's the whole routing model.
+:80 {
+	root * /srv
+	encode gzip zstd
+	file_server
+
+	# Long cache for static assets; HTML stays fresh so a redeploy is visible immediately.
+	@assets path *.css *.js *.png *.jpg *.jpeg *.svg *.webp *.woff *.woff2 *.ico
+	header @assets Cache-Control "public, max-age=2592000, immutable"
+	header *.html Cache-Control "no-cache"
+
+	handle_errors {
+		respond "{err.status_code} {err.status_text}" {err.status_code}
+	}
+}
